@@ -3,11 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\TransactionRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 #[ORM\Entity(repositoryClass: TransactionRepository::class)]
-#[ORM\Table(name: '`transaction`')]
+#[ORM\Table(name: '`bank_transaction`')]
 class Transaction
 {
 
@@ -38,6 +39,13 @@ class Transaction
 
     #[ORM\Column(type: 'string', length: 100)]
     private $value;
+
+
+    public function __construct()
+    {
+        $this->createdAt = new DateTimeImmutable();
+        $this->updatedAt = new DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {

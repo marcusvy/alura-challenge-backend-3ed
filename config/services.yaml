@@ -4,6 +4,11 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    baseUrl: 'https://localhost:8000'
+    upload.document.base: 'public/upload/document'
+    upload.document.prefix: '/upload/document'
+    upload.document.transaction-file.path:  '%upload.document.base%/transactions/'
+    upload.document.transaction-file.prefix: '%upload.document.prefix%/transactions/'
 
 services:
     # default configuration for services in *this* file
